@@ -105,11 +105,11 @@ preload() {
         this.cursors = this.input.keyboard.createCursorKeys();
 
         // Start game on space press
-        window.addEventListener('keydown', (event) => {
-    if (event.code === 'Space' && !this.gameStarted) {
+        this.input.keyboard.on('keydown-SPACE', function () {
+    if (!this.gameStarted) {
         this.startGame();
     }
-});
+}, this);
 
         // Add soft glow effect to paddles and ball
         this.addSoftGlowEffect(this.playerPaddle, 0xFF6B8D);
